@@ -11,7 +11,9 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:checklist.helloChecklist"
+		"onCommand:checklist.helloChecklist",
+		"onCommand:checklist.showCurrentTime",
+		"onCommand:checklist.iAmBad"
 	],
 	"main": "./extension.js",
 	"contributes": {
@@ -19,6 +21,14 @@
 			{
 				"command": "checklist.helloChecklist",
 				"title": "Hello Checklist"
+			},
+			{
+				"command": "checklist.showCurrentTime",
+				"title": "Show Current Time"
+			},
+			{
+				"command": "checklist.iAmBad",
+				"title": "I am Bad"
 			}
 		]
 	},

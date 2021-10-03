@@ -10,6 +10,34 @@ const vscode = require('vscode');
  */
 function activate(context) {
 
+	const getCurrentTime  = () =>{
+		
+		const currentTime = new Date();
+		let hours = (currentTime.getHours()).toString();
+		let minutes = (currentTime.getMinutes()).toString();
+		let AMorPM = 'AM';
+
+		if(currentTime.getHours() >= 12){
+			AMorPM = 'PM';
+			hours = (currentTime.getHours() - 12).toString();
+		}
+
+		if(hours === '0'){
+			hours = '12';
+		}
+
+		// Adding leading zero
+		if (currentTime.getMinutes() < 10) {
+			minutes = `0${currentTime.getMinutes()}`;
+		}
+
+		if (Number(hours) < 10) {
+			hours = `0${hours}`;
+		}
+
+		return `${hours}:${minutes} ${AMorPM}` 
+	}
+
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "checklist" is now active!');
@@ -23,8 +51,18 @@ function activate(context) {
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Hi User, I am Checklist');
 	});
+	
+	let showCurrentTime = vscode.commands.registerCommand('checklist.showCurrentTime', function () {
+		vscode.window.showInformationMessage(`Current time is: ${getCurrentTime()} `);
+	});
+	
+	let iAmBad = vscode.commands.registerCommand('checklist.iAmBad',function () {
+		vscode.window.showErrorMessage('You are not bad! You are a good programmer.');
+	})
 
 	context.subscriptions.push(disposable);
+	context.subscriptions.push(showCurrentTime);
+	context.subscriptions.push(iAmBad);
 }
 
 // this method is called when your extension is deactivated
