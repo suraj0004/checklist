@@ -3,6 +3,7 @@
 	"displayName": "Checklist",
 	"description": "A cool checklist for Developers",
 	"version": "0.0.1",
+	"publisher": "SurajUpadhyay",
 	"engines": {
 		"vscode": "^1.60.0"
 	},
@@ -10,14 +11,14 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:checklist.helloWorld"
+		"onCommand:checklist.helloChecklist"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "checklist.helloWorld",
-				"title": "Hello World"
+				"command": "checklist.helloChecklist",
+				"title": "Hello Checklist"
 			}
 		]
 	},

@@ -17,11 +17,11 @@ function activate(context) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('checklist.helloWorld', function () {
+	let disposable = vscode.commands.registerCommand('checklist.helloChecklist', function () {
 		// The code you place here will be executed every time your command is executed
 
 		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Checklist!');
+		vscode.window.showInformationMessage('Hi User, I am Checklist');
 	});
 
 	context.subscriptions.push(disposable);
