@@ -13,7 +13,8 @@
 	"activationEvents": [
 		"onCommand:checklist.helloChecklist",
 		"onCommand:checklist.showCurrentTime",
-		"onCommand:checklist.iAmBad"
+		"onCommand:checklist.iAmBad",
+		"onView:nodeDependencies"
 	],
 	"main": "./extension.js",
 	"contributes": {
@@ -29,8 +30,44 @@
 			{
 				"command": "checklist.iAmBad",
 				"title": "I am Bad"
-			}
-		]
+			},
+			{
+                "command": "nodeDependencies.refreshEntry",
+                "title": "Refresh",
+                "icon": {
+                    "light": "img/038.ico",
+                    "dark": "img/038.ico"
+                }
+            }
+		],
+		"views": {
+			"package-explorer": [
+				{
+				  "id": "nodeDependencies",
+				  "name": "Node Dependencies",
+				  "icon": "img/003.ico",
+				  "contextualTitle": "Package Explorer"
+				}
+			  ]
+		},
+		"menus": {
+			"view/title": [
+				{
+					"command": "nodeDependencies.refreshEntry",
+					"when": "view == nodeDependencies",
+					"group": "navigation"
+				}
+			]
+		},
+		"viewsContainers": {
+			"activitybar": [
+			  {
+				"id": "package-explorer",
+				"title": "Package Explorer",
+				"icon": "img/003.ico"
+			  }
+			]
+		  }
 	},
 	"scripts": {
 		"lint": "eslint .",
